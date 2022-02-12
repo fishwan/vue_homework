@@ -76,6 +76,9 @@ createApp({
                 this.getData();
                 productModal.hide()
             })
+            .catch(err => {
+                console.log(err.data.message);
+            })
         },
         deleteProduct(){
             let url = `${this.apiUrl}/api/${this.apiPath}/admin/product/${this.tempProduct.id}`;
@@ -85,6 +88,9 @@ createApp({
             .then(res => {
                 this.getData();
                 deleteProductModal.hide();
+            })
+            .catch(err => {
+                alert(err.data.message);
             })
         },
         createImages() {
